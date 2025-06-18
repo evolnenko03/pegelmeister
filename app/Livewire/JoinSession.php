@@ -33,7 +33,7 @@ class JoinSession extends Component
         $this->joined = true;
         session(['player_id' => $player->id, 'session_code' => $gameSession->code]);
 
-        return redirect()->route('game.room', ['code' => $gameSession->code]);
+        return redirect('/game/' . $gameSession->code);
     }
 
     public function render(): object

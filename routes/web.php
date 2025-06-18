@@ -44,6 +44,6 @@ Route::get('/join', function () {
 
 Route::get('/game/{code}', function ($code) {
     return view('game', ['code' => $code]);
-});
+})->name('game.room');
 
 require __DIR__.'/auth.php';
