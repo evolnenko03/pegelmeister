@@ -1,12 +1,12 @@
 <div class="max-w-4xl mx-auto mt-8 p-6">
     <div class="bg-white rounded-lg shadow-md p-6">
         <div class="flex justify-between items-center mb-6">
-            <h1 class="text-2xl font-bold">Game Room: {{ $sessionCode }}</h1>
+            <div class="text-2xl font-bold">Game Room: {{ $sessionCode }}</div>
             <div class="text-sm text-gray-600">Round {{ $currentRound }}/{{ $totalRounds }}</div>
         </div>
 
         <div class="mb-6">
-            <h3 class="text-lg font-semibold mb-2">Players:</h3>
+            <div class="text-lg font-semibold mb-2">Players:</div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
                 @foreach($players as $player)
                     <div class="bg-gray-100 p-2 rounded text-center">
@@ -20,22 +20,29 @@
         @if(!$gameStarted)
             <div class="mb-6">
                 <h3 class="text-lg font-semibold mb-4">Game Setup</h3>
-                <div class="mb-4">
-                    <label class="block text-sm font-medium mb-2">Select Category:</label>
-                    <select wire:model="selectedCategory" class="w-full p-2 border rounded">
-                        <option value="">Choose a category...</option>
-                        @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="mb-4">
-                    <label class="block text-sm font-medium mb-2">Number of Rounds:</label>
-                    <input type="number" wire:model="totalRounds" min="5" max="50" class="w-full p-2 border rounded">
-                </div>
-                <button wire:click="startGame" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-                    Start Game
-                </button>
+
+                @if($isHost)
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium mb-2">Select Category:</label>
+                        <select wire:model="selectedCategory" class="w-full p-2 border rounded">
+                            <option value="">Choose a category...</option>
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium mb-2">Number of Rounds:</label>
+                        <input type="number" wire:model="totalRounds" min="5" max="50" class="w-full p-2 border rounded">
+                    </div>
+                    <button wire:click="startGame" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                        Start Game
+                    </button>
+                @else
+                    <div class="p-4 bg-yellow-100 rounded text-center">
+                        Warte darauf, dass der Host das Spiel startet...
+                    </div>
+                @endif
             </div>
         @elseif($gameFinished)
             <div class="text-center">

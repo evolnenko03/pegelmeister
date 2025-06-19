@@ -27,6 +27,7 @@ class GameRoom extends Component
     public $showResults = false;
     public $roundResults = [];
     public $gameFinished = false;
+    public $isHost = false;
 
     protected $listeners = ['answer-submitted' => 'handleAnswer'];
 
@@ -38,6 +39,9 @@ class GameRoom extends Component
         if (!$this->gameSession) {
             abort(404, 'Session not found');
         }
+
+        $this->isHost = ($this->gameSession->host_player_id == session('player_id'));
+
 
         $this->loadPlayers();
         $this->categories = Category::all();
@@ -51,6 +55,12 @@ class GameRoom extends Component
 
     public function startGame()
     {
+        if (!$this->isHost) {
+            return;
+        }
+
+        $this->validate(['selectedCategory' => 'required']);
+
         $this->validate(['selectedCategory' => 'required']);
 
         $this->questions = Question::where('category_id', $this->selectedCategory)

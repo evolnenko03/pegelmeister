@@ -11,6 +11,7 @@ class GameSession extends Model
 
     protected $fillable = [
         'code',
+        'host_player_id',
     ];
 
     public function players()

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('game_sessions', function (Blueprint $table) {
             $table->id();
             $table->string('code')->unique();
+            $table->unsignedBigInteger('host_player_id')->nullable();
             $table->timestamps();
         });
     }

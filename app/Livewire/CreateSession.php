@@ -20,11 +20,13 @@ class CreateSession extends Component
     {
         $this->validate(['playerName' => 'required|min:2|max:50']);
 
+        $player = Player::create(['player_name' => $this->playerName]);
+
         $gameSession = GameSession::create([
-            'code' => strtoupper(Str::random(6))
+            'code' => strtoupper(Str::random(6)),
+            'host_player_id' => $player->id
         ]);
 
-        $player = Player::create(['player_name' => $this->playerName]);
         $gameSession->players()->attach($player->id, ['score' => 0]);
 
         $this->sessionCode = $gameSession->code;
