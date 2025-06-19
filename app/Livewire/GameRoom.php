@@ -59,13 +59,17 @@ class GameRoom extends Component
             ->limit($this->totalRounds)
             ->get();
 
-        if (count($this->questions) < $this->totalRounds) {
-            $this->totalRounds = count($this->questions);
-        }
+        $this->totalRounds = min($this->totalRounds, $this->questions->count());
 
-        if (count($this->questions) > 0) {
+        $this->currentRound = 1;
+        $this->gameFinished = false;
+        $this->showResults = false;
+
+        if ($this->questions->isNotEmpty()) {
             $this->currentQuestion = $this->questions[0];
             $this->gameStarted = true;
+        } else {
+            session()->flash('error', 'Keine Fragen in dieser Kategorie gefunden.');
         }
     }
 
@@ -97,16 +101,19 @@ class GameRoom extends Component
     {
         $this->currentRound++;
 
-        if ($this->currentRound > $this->totalRounds || $this->currentRound > count($this->questions)) {
+        if ($this->currentRound > $this->totalRounds) {
             $this->gameFinished = true;
             $this->loadPlayers();
             return;
         }
 
-        if (isset($this->questions[$this->currentRound - 1])) {
-            $this->currentQuestion = $this->questions[$this->currentRound - 1];
+        $index = $this->currentRound - 1;
+
+        if ($index < $this->questions->count()) {
+            $this->currentQuestion = $this->questions[$index];
         } else {
             $this->gameFinished = true;
+            $this->loadPlayers();
             return;
         }
 

@@ -41,6 +41,68 @@ class QuestionSeeder extends Seeder
                 ['answer' => 'Go', 'is_correct' => false],
                 ['answer' => 'Gd', 'is_correct' => false],
             ]],
+
+            // Zusätzliche Geographie-Fragen (Kategorie 1)
+            ['question' => 'What is the capital of Germany?', 'category_id' => 1, 'answers' => [
+                ['answer' => 'Berlin', 'is_correct' => true],
+                ['answer' => 'Munich', 'is_correct' => false],
+                ['answer' => 'Hamburg', 'is_correct' => false],
+                ['answer' => 'Frankfurt', 'is_correct' => false],
+            ]],
+            ['question' => 'What is the capital of Spain?', 'category_id' => 1, 'answers' => [
+                ['answer' => 'Madrid', 'is_correct' => true],
+                ['answer' => 'Barcelona', 'is_correct' => false],
+                ['answer' => 'Seville', 'is_correct' => false],
+                ['answer' => 'Valencia', 'is_correct' => false],
+            ]],
+            ['question' => 'What is the capital of Italy?', 'category_id' => 1, 'answers' => [
+                ['answer' => 'Rome', 'is_correct' => true],
+                ['answer' => 'Milan', 'is_correct' => false],
+                ['answer' => 'Naples', 'is_correct' => false],
+                ['answer' => 'Florence', 'is_correct' => false],
+            ]],
+            ['question' => 'What is the capital of Japan?', 'category_id' => 1, 'answers' => [
+                ['answer' => 'Tokyo', 'is_correct' => true],
+                ['answer' => 'Kyoto', 'is_correct' => false],
+                ['answer' => 'Osaka', 'is_correct' => false],
+                ['answer' => 'Hiroshima', 'is_correct' => false],
+            ]],
+            ['question' => 'What is the capital of Australia?', 'category_id' => 1, 'answers' => [
+                ['answer' => 'Canberra', 'is_correct' => true],
+                ['answer' => 'Sydney', 'is_correct' => false],
+                ['answer' => 'Melbourne', 'is_correct' => false],
+                ['answer' => 'Perth', 'is_correct' => false],
+            ]],
+            ['question' => 'What is the capital of Brazil?', 'category_id' => 1, 'answers' => [
+                ['answer' => 'Brasília', 'is_correct' => true],
+                ['answer' => 'Rio de Janeiro', 'is_correct' => false],
+                ['answer' => 'São Paulo', 'is_correct' => false],
+                ['answer' => 'Salvador', 'is_correct' => false],
+            ]],
+            ['question' => 'What is the capital of Egypt?', 'category_id' => 1, 'answers' => [
+                ['answer' => 'Cairo', 'is_correct' => true],
+                ['answer' => 'Alexandria', 'is_correct' => false],
+                ['answer' => 'Giza', 'is_correct' => false],
+                ['answer' => 'Luxor', 'is_correct' => false],
+            ]],
+            ['question' => 'What is the capital of Canada?', 'category_id' => 1, 'answers' => [
+                ['answer' => 'Ottawa', 'is_correct' => true],
+                ['answer' => 'Toronto', 'is_correct' => false],
+                ['answer' => 'Montreal', 'is_correct' => false],
+                ['answer' => 'Vancouver', 'is_correct' => false],
+            ]],
+            ['question' => 'What is the capital of Russia?', 'category_id' => 1, 'answers' => [
+                ['answer' => 'Moscow', 'is_correct' => true],
+                ['answer' => 'St. Petersburg', 'is_correct' => false],
+                ['answer' => 'Novosibirsk', 'is_correct' => false],
+                ['answer' => 'Kazan', 'is_correct' => false],
+            ]],
+            ['question' => 'What is the capital of China?', 'category_id' => 1, 'answers' => [
+                ['answer' => 'Beijing', 'is_correct' => true],
+                ['answer' => 'Shanghai', 'is_correct' => false],
+                ['answer' => 'Hong Kong', 'is_correct' => false],
+                ['answer' => 'Guangzhou', 'is_correct' => false],
+            ]],
         ];
 
         foreach ($questions as $questionData) {
