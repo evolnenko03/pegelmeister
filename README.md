@@ -28,5 +28,5 @@ git pull
 ```
 
 ```
-./deploy
+./deploy.sh
 ```
