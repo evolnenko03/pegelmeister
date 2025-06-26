@@ -19,7 +19,7 @@
 
         @if(!$gameStarted)
             <div class="mb-6">
-                <h3 class="text-lg font-semibold mb-4">Game Setup</h3>
+                <div class="text-lg font-semibold mb-4">Game Setup</div>
 
                 @if($isHost)
                     <div class="mb-4">
@@ -46,13 +46,13 @@
             </div>
         @elseif($gameFinished)
             <div class="text-center">
-                <h2 class="text-3xl font-bold mb-4">Game Over!</h2>
+                <div class="text-3xl font-bold mb-4">Game Over!</div>
                 <div class="mb-4">
-                    <h3 class="text-xl font-semibold mb-2">Final Scores:</h3>
+                    <div class="text-xl font-semibold mb-2">Final Scores:</div>
                     @foreach($players->sortByDesc('pivot.score') as $player)
                         <div class="bg-gray-100 p-3 rounded mb-2">
-                            <span class="font-medium">{{ $player->player_name }}</span>
-                            <span class="float-right">{{ $player->pivot?->score ?? 0 }} points</span>
+                            <div class="font-medium">{{ $player->player_name }}</div>
+                            <div class="float-right">{{ $player->pivot?->score ?? 0 }} points</div>
                         </div>
                     @endforeach
                 </div>
@@ -70,8 +70,8 @@
         @else
             <div class="mb-6">
                 <div class="bg-blue-100 p-4 rounded mb-4">
-                    <h3 class="text-xl font-semibold mb-2">Question {{ $currentRound }}:</h3>
-                    <p class="text-lg">{{ $currentQuestion->question }}</p>
+                    <div class="text-xl font-semibold mb-2">Question {{ $currentRound }}:</div>
+                    <div class="text-lg">{{ $currentQuestion->question }}</div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
