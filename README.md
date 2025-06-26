@@ -14,3 +14,19 @@
 - `php artisan migrate:fresh --seed` (With fresh, it resets the database and with the flag --seed you add test data.)
 - `php artisan serve` (localhost:8000)
 - `npm run dev` (So vite runs)
+
+## Deployment
+
+- ssh into server
+
+```
+cd /var/www/pegelmeister
+```
+
+```
+git pull
+```
+
+```
+./deploy
+```
