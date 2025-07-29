@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\GameSession;
 use App\Models\Player;
+use App\Events\PlayerJoined;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
@@ -34,6 +35,9 @@ class CreateSession extends Component
         $this->sessionCreated = true;
 
         session(['player_id' => $player->id, 'session_code' => $gameSession->code]);
+
+        // Broadcast player joined
+        broadcast(new PlayerJoined($gameSession->code, $player));
     }
 
     public function render(): Factory|View
