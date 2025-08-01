@@ -1,6 +1,6 @@
 <div class="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
     @if(!$sessionCreated)
-        <h2 class="text-2xl font-bold mb-4">Create Game Session</h2>
+        <div class="text-2xl font-bold mb-4">Create Game Session</div>
         <form wire:submit.prevent="createSession">
             <div class="mb-4">
                 <label class="block text-sm font-medium mb-2">Your Name</label>
@@ -13,10 +13,10 @@
         </form>
     @else
         <div class="text-center">
-            <h2 class="text-2xl font-bold mb-4">Session Created!</h2>
+            <div class="text-2xl font-bold mb-4">Session Created!</div>
             <div class="mb-4">
-                <p class="text-lg">Session Code:</p>
-                <p class="text-3xl font-mono bg-gray-100 p-4 rounded">{{ $sessionCode }}</p>
+                <div class="text-lg">Session Code:</div>
+                <div class="text-3xl font-mono bg-gray-100 p-4 rounded">{{ $sessionCode }}</div>
             </div>
             <a href="/game/{{ $sessionCode }}" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
                 Enter Game Room
